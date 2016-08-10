@@ -14,9 +14,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import hu.deik.core.entity.User;
 import hu.deik.service.HelloWorldServiceImpl;
-import hu.deik.service.UserService;
 
 /**
  * Servlet implementation class HelloWorld
@@ -27,9 +25,6 @@ public class HelloWorld extends HttpServlet {
 
 	@Autowired
 	private HelloWorldServiceImpl service;
-
-	@Autowired
-	private UserService userService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -54,12 +49,6 @@ public class HelloWorld extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			User saveUser = userService.saveUser(User.builder().username("test").build());
-			response.getWriter().append(String.valueOf(saveUser.getId()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		response.getWriter().append(service.sayHello());
 		response.getWriter().append("Served at: ").append(request.getContextPath());
