@@ -7,12 +7,104 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>de-ik-xmpp-service</artifactId>
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.0.0.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.shrinkwrap.resolver</groupId>
+				<artifactId>shrinkwrap-resolver-bom</artifactId>
+				<version>2.0.0-beta-2</version>
+				<scope>test</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
+		<dependency>
+			<groupId>hu.deik</groupId>
+			<artifactId>de-ik-xmpp-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>hu.deik</groupId>
+			<artifactId>de-ik-xmpp-persistence</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-	</dependencies>
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.container</groupId>
+			<artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.main.extras</groupId>
+			<artifactId>glassfish-embedded-all</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>2.0-EDR1</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.jboss.arquillian.extension</groupId> -->
+		<!-- <artifactId>arquillian-warp-spring</artifactId> -->
+		<!-- <version>1.1.0.Alpha1</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.jboss.arquillian.extension</groupId>
+			<artifactId>arquillian-service-deployer-spring-3</artifactId>
+			<version>1.0.0.Beta1</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.jboss.arquillian.extension</groupId>
+			<artifactId>arquillian-service-integration-spring-inject</artifactId>
+			<scope>test</scope>
+			<version>1.0.0.Beta1</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12</version>
+				<configuration>
+					<systemPropertyVariables>
+						<java.util.logging.config.file>
+							${project.build.testOutputDirectory}/logging.properties
+						</java.util.logging.config.file>
+						<derby.stream.error.file>
+							${project.build.directory}/derby.log
+						</derby.stream.error.file>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

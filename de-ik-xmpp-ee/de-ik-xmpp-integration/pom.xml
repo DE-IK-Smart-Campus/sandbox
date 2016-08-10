@@ -24,5 +24,10 @@
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>hu.deik</groupId>
+            <artifactId>de-ik-xmpp-api</artifactId>
+            <version>1.0</version>
+        </dependency>
 	</dependencies>
 </project>

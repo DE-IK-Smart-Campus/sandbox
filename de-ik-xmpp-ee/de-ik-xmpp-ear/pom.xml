@@ -24,6 +24,11 @@
 		</dependency>
 		<dependency>
 			<groupId>hu.deik</groupId>
+			<artifactId>de-ik-xmpp-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>hu.deik</groupId>
 			<artifactId>de-ik-xmpp-web</artifactId>
 			<version>1.0</version>
 			<type>war</type>
@@ -52,6 +57,10 @@
 						<jarModule>
 							<groupId>hu.deik</groupId>
 							<artifactId>de-ik-xmpp-integration</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>hu.deik</groupId>
+							<artifactId>de-ik-xmpp-api</artifactId>
 						</jarModule>
 					</modules>
 				</configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="deikXmppH2" transaction-type="JTA">
+		<description>The persistence unit for the entity manager.</description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>XMPPDBJNDI</jta-data-source>
+		<class>hu.deik.core.entity.User</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

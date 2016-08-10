@@ -6,13 +6,13 @@ import javax.jws.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import hu.deik.service.HelloWorldService;
+import hu.deik.service.HelloWorldServiceImpl;
 
 @WebService(serviceName = "helloWorldWS")
 public class HelloWorldWS extends SpringBeanAutowiringSupport {
 
 	@Autowired
-	private HelloWorldService service;
+	private HelloWorldServiceImpl service;
 
 	@WebMethod
 	public String sayHello() {
@@ -20,12 +20,12 @@ public class HelloWorldWS extends SpringBeanAutowiringSupport {
 	}
 
 	@WebMethod(exclude = true)
-	public HelloWorldService getService() {
+	public HelloWorldServiceImpl getService() {
 		return service;
 	}
 
 	@WebMethod(exclude = true)
-	public void setService(HelloWorldService service) {
+	public void setService(HelloWorldServiceImpl service) {
 		this.service = service;
 	}
 
