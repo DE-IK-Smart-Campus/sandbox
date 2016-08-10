@@ -58,10 +58,6 @@
 							<groupId>hu.deik</groupId>
 							<artifactId>de-ik-xmpp-integration</artifactId>
 						</jarModule>
-						<jarModule>
-							<groupId>hu.deik</groupId>
-							<artifactId>de-ik-xmpp-api</artifactId>
-						</jarModule>
 					</modules>
 				</configuration>
 			</plugin>

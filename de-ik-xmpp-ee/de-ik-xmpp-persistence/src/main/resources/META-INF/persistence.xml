@@ -10,8 +10,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>XMPPDBJNDI</jta-data-source>
 		<class>hu.deik.core.entity.User</class>
-
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<class>hu.deik.core.entity.Role</class>
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />

@@ -44,7 +44,7 @@
 		<spring.data.jpa.version>1.10.2.RELEASE</spring.data.jpa.version>
 		<hibernate.jpa.api.version>1.0.0.Final</hibernate.jpa.api.version>
 		<spring.db.version>4.1.6.RELEASE</spring.db.version>
-		<hibernate.version>5.2.1.Final</hibernate.version>
+		<hibernate.version>3.6.9.Final</hibernate.version>
 		<hibernate.commons.version>5.0.1.Final</hibernate.commons.version>
 		<mysql.version>5.1.38</mysql.version>
 	</properties>
