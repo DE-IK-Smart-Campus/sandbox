@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h2>Csoportok</h2>
+		<h:dataTable var="group" value="#{indexBean.groupList}"
+			styleClass="simpletablestyle">
+			<h:column>
+				<f:facet name="header">Neve</f:facet>
+                #{group}
+            </h:column>
+		</h:dataTable>
+		<h:form>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Csoport azonosítója" />
+				<p:inputText value="#{indexBean.group}" />
+
+				<p:outputLabel value="Csoport neve" />
+				<p:inputText value="#{indexBean.groupName}" />
+
+				<p:outputLabel value="Leírás" />
+				<p:inputTextarea value="#{indexBean.description}" />
+
+				<p:outputLabel value="Megjelenítendő csoportok" />
+				<p:pickList id="groupPickList" value="#{indexBean.groups}"
+					var="groups" itemLabel="#{groups}" itemValue="#{groups}" />
+
+				<p:commandButton id="submit" value="Mentés" style="margin-top:5px"
+					action="#{indexBean.createGroup()}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
